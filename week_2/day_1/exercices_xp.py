@@ -58,6 +58,53 @@ stairway = Song([
 
 stairway.sing_me_a_song()
 
-
 # Exercice 4
+class Zoo:
+    def __init__(self, zoo_name):
+        self.name = zoo_name
+        self.animals = []
+        groups = {}
+
+    def add_animal(self, *new_animals):
+        for animal in new_animals:
+            if animal not in self.animals:
+                self.animals.append(animal)
+
+    def get_animals(self):
+        print(self.animals)
+
+    def sell_animal(self, animal_sold):
+        if animal_sold in self.animals:
+            self.animals.remove(animal_sold)
+    
+    def sort_animals(self):
+        self.animals.sort()
+        group = {}
+
+        for animal in self.animals:
+            letter = animal[0].upper()
+            if letter not in group:
+                group[letter] = [animal]
+            else:
+                group[letter].append(animal)
+        
+        self.groups = group
+        return group
+    
+    def get_groups(self):
+        print(self.groups)
+
+casa_zoo = Zoo("Casa Zoo")
+
+casa_zoo.add_animal("cat")
+casa_zoo.add_animal("dog")
+casa_zoo.get_animals()
+casa_zoo.sell_animal("dog")
+casa_zoo.get_animals()
+casa_zoo.add_animal("cow")
+casa_zoo.add_animal("lion")
+casa_zoo.add_animal("monkey", "donkey", "tiger")
+casa_zoo.get_animals()
+casa_zoo.sort_animals()
+casa_zoo.get_groups()
 
